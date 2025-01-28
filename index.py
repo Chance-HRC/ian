@@ -99,7 +99,6 @@ if selected_runs:
             received_datetime = datetime.strptime(f"{details['date_received']} {details['time_received']}", "%d/%m/%Y %H:%M")
             results_received_datetime = datetime.strptime(f"{results_received_date} {results_received_time}", "%d/%m/%Y %H:%M")
 
-            time_at_lab = round((received_datetime - sent_datetime).total_seconds() / 3600, 2)  # Time in hours, rounded to 2 decimal places
 
             all_data.append({
                 "Run": run,
@@ -108,7 +107,6 @@ if selected_runs:
                 "Date and Time Sent": sent_datetime.strftime("%d/%m/%Y %H:%M"),  # NZ Format
                 "Date & Time Received at the Lab": received_datetime.strftime("%d/%m/%Y %H:%M"),  # NZ Format
                 "Results Received via Labmail": results_received_datetime.strftime("%d/%m/%Y %H:%M"),  # NZ Format
-                "Time at Lab": f"{time_at_lab:.2f}"  # Ensure 2 decimal places
             })
             sample_num += 1  # Increment sample number for next site
 
